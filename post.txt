@@ -1,0 +1,10 @@
+from data   post 参数
+表单数据的处理
+#构建表单数据
+form_data = {
+    'kw':word
+}#抓包得来的fromdata数据
+fillder抓出的包有一个小本加一个箭头 都是post请求
+浏览器模拟标头时  Content -Length  长度 不要加
+				  Accept -Encoding  解压缩不要加
+				  按照情况不加

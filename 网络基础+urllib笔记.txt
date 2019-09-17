@@ -1,0 +1,79 @@
+robot.txt  robot 协议 设置通用爬虫爬取权限
+HTTP请求中常用的消息头：
+accept：浏览器通过这个头告诉服务器，它所支持的数据类型
+Accept-Charset：浏览器通过这个头告诉服务器，它支持那种字符集
+Accept-Encoding：浏览器通过这个头告诉服务器，支持的压缩格式
+Accept-Language：浏览器通过这个头告诉服务器，它的语言环境
+host：浏览器通过这个头告诉服务器，想访问哪台主机的端口
+If-Modified-Since：浏览器通过这个头告诉服务器，缓存数据的时间
+Referer：浏览器通过这个头告诉服务器，客户从那个界面里来的，防盗链由此判定必须从上个界面来的才可以爬取
+Connection：浏览器通过这个头告诉服务器，请求完后断开连接还是持续链接
+
+状态码				含 			义
+100~199			表示成功接受请求，要求客户端继续提交下一次请求过程
+200~299			表示成功接受请求并已完成整个处理过程，常用200
+300~399			未完成请求，客户需进一步细化请求。例如，请求的资源已经移动一个新地址，常用302、307、304
+400~499			客户端请求有误，常用404
+500~599			客户端出现错误，常用500（代码或服务器出现错误）
+谷歌开发者工具：
+F12   右边栏：request headers response
+         qyery string：get 参数
+         from data：post参数 
+fiddler:
+<>： html内容
+{json}：json数据，很有可能书接口
+{css}：css文件
+{js}：js文件
+停止抓取：file==》capture
+点击请求，右边选中 inspectors 
+右上：http 请求信息
+查看请求头：raw（原始）
+有关请求所带参数 WebForms
+右下：http 响应信息
+右下黑色框,输入指令
+clear 清楚
+select json：选中所有json请求
+select image：图片请求
+？内容：搜索包含这个内容的所有请求 例如： ?biadu
+enter 执行
+
+urllib 库
+模拟浏览器发送请求的库，python自带的库
+python2：urllib urllib2
+python3：urllib.request   urllib.parse
+
+字符串==》 二进制字符串之间的转化
+encode() 字符串==》字节类型
+如果小括号里面不写参数，默认是utf8
+如果写，你就写gbk
+decode() 字节类型==》字符串
+如果不写 默认utf8
+如果写 写gbk
+url只能由特定的字符组成，字母，数字，下划线
+如果出现其他字符，比如$ 空格 中文等，就要对其进行编码
+response 
+	read() 读取相应内容，内容是字节类型
+	geturl() 根据响应的内容，获取请求的url
+	getheaders() 获取头部信息
+	getcode() 获取状态码
+	readlines() 按行读取，返回列表，都是字节类型
+图片只能写入本地二进制的格式
+urllib.request.urlopen(image_path)
+urllib.request.urlretrieve(url,image_path)
+urllib.parse（转译）模块
+urllib.parse.quote(将￥ 中文，空格等转译成编码)
+urllib.parse.unquote 解码 函数
+urllib.parse.urlencode(data)将字典拼接未query_string并且实现了编码
+5、get方式
+伪装头部
+headers ={
+ 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.67 Safari/537.36',
+}   #UA  标头伪装
+构建请求对象
+request = urllib.request.Request(ur1=ur1,headers=headers)
+发送请求
+response = urllib.request.urlopen(request)
+with open ('1.html','wb') as fp:
+fp.write(response.read())读取写入html文件
+
+

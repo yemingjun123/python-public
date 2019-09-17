@@ -1,0 +1,33 @@
+bs4:
+全称：BeautifulSoup
+需要将pip源设置为国内源
+修改国内源
+windows：
+		打开文件夹==》在地址栏输入：%appdata%==》跳转至目录下创建pip文件夹==》文件夹里创建pip.ini==》pip.ini里输入：
+		[global]
+		timeout = 6000
+		index-url = https://mirros.aliyun.com/pypi/simple/
+		trusted-host = mirros.aliyun.com
+		如果安装不了，可以换源：阿里源，豆瓣源，网易源等
+Linux：
+		CD~ ==>mkdir ~/.pip ==> vim ~/.pip/pip.conf==>pip.conf输入：
+		[global]
+		timeout = 6000
+		index-url = https://mirros.aliyun.com/pypi/simple/
+		trusted-host = mirros.aliyun.com
+		
+需要安装：pip install bs4 -ihttps://pypi.doubanio.com/simple
+		bs4在使用时候需要一个第三方库，把这个库也安装一下
+		pip install lxml -ihttps://pypi.doubanio.com/simple
+	简单使用：
+		说明：选择器，jquery
+		导入： from bs4 import BeautifulSoup
+		使用方式：可以将一个html的文档转换成指定的对象，通过对象的方法或者属性去查找指定的类容
+		(1)转化本地文件：
+		soup = BeautifulSoup(open('本地文件'),'html')
+		(2)转化网络文件:
+		soup = BeautifulSoup('字符串类型或者字节类型','lxml')
+	(1)根据标签名查找
+		soup.a 只能找第一个符合要求的标签
+	(2)获取属性
+		

@@ -1,0 +1,27 @@
+URLErrpr\HTTPError
+这两个类都在urllib.error中
+NameError    TypeError FukeNotFound  异常
+异常处理  try-except
+URLError：
+		（1）没有网
+		（2）服务器连接失败
+		（3）找不到指定的服务器
+HTTPError：
+		是URLError的子类
+		【注】两个同时捕获时，HTTPError写在上面，URLError写在下面
+handler 处理器 自定义opener
+urlopen() 给一个url发送请求，获取响应
+Request() 定制请求头，创建请求对象
+高级功能： 使用代理，cookie
+基本用法： handler.py
+代理
+生活中的代理：微商、代练、代孕、代考、代架、代购
+程序中的代理
+	正向代理：代理客户端获取数据
+	反向代理：代理服务端提供数据
+代理工具：花刺代理验证    西刺免费代理  快代理
+配置：
+	浏览器配置：
+		右边三点==》设置==》高级==》代理==》局域网设置==》代理服务器
+	代码配置
+	
